@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,8 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SimpleServlet
  */
-@WebServlet(description = "A simple servlet", urlPatterns = { "/SimpleServletPath" })
+@WebServlet(description = "A simple servlet", urlPatterns = { "/SimpleServletPath" }, initParams = {
+		@WebInitParam(name = "defaultUser", value = "Abhishek") })
 public class SimpleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,13 +26,13 @@ public class SimpleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//For maintaining a session(Per user/browser)
+
+		// For maintaining a session(Per user/browser)
 		HttpSession session = request.getSession();
-		
-		//At servlet level(for all browsers)
+
+		// At servlet level or Application level(for all browsers)
 		ServletContext context = request.getServletContext();
-		
+
 		PrintWriter out = response.getWriter();
 		String username = request.getParameter("name");
 		if (username != null && !username.isEmpty()) {
@@ -41,6 +43,7 @@ public class SimpleServlet extends HttpServlet {
 		out.println("Request parameter has Username as: " + username);
 		out.println("Session parameter has Username as: " + (String) session.getAttribute("loggedInUser"));
 		out.println("Context parameter has Username as: " + (String) context.getAttribute("loggedInUser"));
+		out.println("Init default user is: " + getServletConfig().getInitParameter("defaultUser"));
 		System.out.println("Hello Get Method!!");
 	}
 
