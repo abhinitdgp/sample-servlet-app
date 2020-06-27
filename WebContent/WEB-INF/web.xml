@@ -8,6 +8,10 @@
 	<servlet>
 		<servlet-name>xmlServlet</servlet-name>
 		<servlet-class>org.abhishek.servlet.XmlServlet</servlet-class>
+		<init-param>
+			<param-name>defaultUser</param-name>
+			<param-value>Abhishek Aggarwal</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>xmlServlet</servlet-name>
