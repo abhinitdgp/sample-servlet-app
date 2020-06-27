@@ -21,5 +21,12 @@
 	<%=k%>
 	<br> The modified value of K is
 	<%=add(2367, 87892)%>
+	<br>
+	<%!int t = -1;%>
+	<%
+		if (t < 0)
+	%>
+	<%@include file="Error.jsp"%>
+
 </body>
 </html>
