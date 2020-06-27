@@ -27,6 +27,7 @@ public class XmlServlet extends HttpServlet {
 		String prof = request.getParameter("prof");
 		out.println("And your profession is: " + prof);
 
+		// for getting parameters which can have multiple values like check box and select
 		out.println("Your places are: ");
 		String[] locs = request.getParameterValues("location");
 		for (String s : locs)
