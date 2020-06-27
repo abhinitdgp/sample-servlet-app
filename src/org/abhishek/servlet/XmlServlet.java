@@ -8,8 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class XmlServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Hello EveryOne");
-		System.out.println("Xml Servlet");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("userName");
+		response.getWriter().append("Hello from GET method: " + name);
+		System.out.println("Xml get Method");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("userName");
+		response.getWriter().append("Hello from POST method: " + name);
+		System.out.println("Xml Post Method");
 	}
 }
