@@ -10,12 +10,25 @@
 		<servlet-class>org.abhishek.servlet.XmlServlet</servlet-class>
 		<init-param>
 			<param-name>defaultUser</param-name>
-			<param-value>Abhishek Aggarwal</param-value>
+			<param-value>AbhishekAggarwal</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>xmlServlet</servlet-name>
 		<url-pattern>/xmlServletPath</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>initPage</servlet-name>
+		<jsp-file>/initPage.jsp</jsp-file>
+		<init-param>
+			<param-name>defaultUser</param-name>
+			<param-value>Test User</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>initPage</servlet-name>
+		<url-pattern>/initPage.jsp</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
